@@ -2,10 +2,8 @@
 //  UIColor+Change.m
 //  ChangeColor
 //
-//  Created by 杜子兮 on 14-3-13.
-//  Edited  by 杜子兮 on 14-5-23.
-//  Edited  by 杜子兮 on 14-7-12. for Canvas.
-//  Copyright (c) 2014年 莲兮奈若何. All rights reserved.
+//  Created by QuinceyYang on 16-3-13.
+//  Copyright (c) 2016年 QuinceyYang. All rights reserved.
 //
 
 #import "UIColor+Change.h"

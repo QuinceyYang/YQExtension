@@ -1,9 +1,9 @@
 //
-//  NSObject+UIImage_Bitmap.h
-//  CGImageTest
+//  UIImage+Bitmap.h
 //
-//  Created by yeeku on 14/12/14.
-//  Copyright (c) 2014年 crazyit.org. All rights reserved.
+//
+//  Created by 杨清 on 2017/7/26.
+//  Copyright © 2017年 QuinceyYang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

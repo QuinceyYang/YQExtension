@@ -1,9 +1,9 @@
 //
 //  NSString+YQExtension.h
-//  ParkingWe
+//
 //
 //  Created by 杨清 on 2017/7/26.
-//  Copyright © 2017年 soargift.com. All rights reserved.
+//  Copyright © 2017年 QuinceyYang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

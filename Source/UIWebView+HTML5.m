@@ -1,12 +1,9 @@
 //
 //  UIWebView+HTML5.m
 //
-//  14-06-30. Created by 杜子兮(duzixi.com)
-//  14-07-11. 修改网页图片显示大小
-//  14-07-26. 添加 canvas API 类目
-//  14-11-05. 完善改变图片高度和宽度实现; 针对iOS8类型检测进行完善
 //
-//  Copyright (c) 2014年 lanou3g.com 蓝鸥. All rights reserved.
+//  Created by 杨清 on 2017/7/26.
+//  Copyright © 2017年 QuinceyYang. All rights reserved.
 //
 
 #import "UIWebView+HTML5.h"

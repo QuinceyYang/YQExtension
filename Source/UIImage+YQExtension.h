@@ -1,9 +1,9 @@
 //
 //  UIImage+YQExtension.h
-//  ParkingWe
+//
 //
 //  Created by 杨清 on 2017/8/9.
-//  Copyright © 2017年 soargift.com. All rights reserved.
+//  Copyright © 2017年 QuinceyYang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

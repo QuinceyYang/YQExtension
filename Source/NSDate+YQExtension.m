@@ -1,9 +1,9 @@
 //
 //  NSDate+YQExtension.m
-//  ParkingWe
+//
 //
 //  Created by 杨清 on 2017/8/16.
-//  Copyright © 2017年 soargift.com. All rights reserved.
+//  Copyright © 2017年 QuinceyYang. All rights reserved.
 //
 
 #import "NSDate+YQExtension.h"

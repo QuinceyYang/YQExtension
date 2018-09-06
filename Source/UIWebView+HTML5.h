@@ -1,11 +1,10 @@
 //
 //  UIWebView+HTML5.h
-//  WebViewJS
 //
-//  Created by 杜子兮(duzixi) on 14-6-30.
-//  Edited  by 杜子兮(duzixi) on 14-7-11. 修改网页图片显示大小
-//  Edited  by 杜子兮(duzixi) on 14-7-26. 添加 canvas API 类目
-//  Copyright (c) 2014年 lanou3g.com 蓝鸥. All rights reserved.
+//
+//  Created by 杨清 on 2017/7/26.
+//  Copyright © 2017年 QuinceyYang. All rights reserved.
+//
 //
 
 #import <UIKit/UIKit.h>
