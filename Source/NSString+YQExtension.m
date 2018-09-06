@@ -309,7 +309,7 @@
 + (NSMutableAttributedString *)stringTitle:(NSString *)string range:(NSRange)range {
     
     NSMutableAttributedString *MutableAttributedString = [[NSMutableAttributedString alloc] initWithString:string];
-    [MutableAttributedString addAttributes:@{NSForegroundColorAttributeName : RGB(255, 131, 47),
+    [MutableAttributedString addAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:255.0/255.0 green:131.0/255.0 blue:47.0/255.0 alpha:1],
                                              NSFontAttributeName : [UIFont systemFontOfSize:20]
                                              } range:range];
     return MutableAttributedString;
