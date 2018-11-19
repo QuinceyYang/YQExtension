@@ -74,4 +74,13 @@
  */
 + (UIImage *)imageGradientOrangeSelectedWithSize:(CGSize)size;
 
+/**
+ * 生成一张半圆形，圆弧向下
+ */
++ (UIImage *)imageHalfCircleDownWithRadius:(CGFloat)radius color:(UIColor *)color;
+/**
+ * 生成一张半圆形，圆弧向上
+ */
++ (UIImage *)imageHalfCircleUpWithRadius:(CGFloat)radius color:(UIColor *)color;
+
 @end

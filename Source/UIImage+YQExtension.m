@@ -243,4 +243,48 @@
     return img;
 }
 
+/**
+ * 生成一张半圆形，圆弧向下
+ */
++ (UIImage *)imageHalfCircleDownWithRadius:(CGFloat)radius color:(UIColor *)color {
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(2*radius, radius), NO, 0.0f);
+    
+    //// Oval Drawing
+    //CGRect ovalRect = CGRectMake(0, -15, 30, 30);
+    CGRect ovalRect = CGRectMake(0, -radius, 2*radius, 2*radius);
+    UIBezierPath* ovalPath = [UIBezierPath bezierPath];
+    [ovalPath addArcWithCenter: CGPointMake(CGRectGetMidX(ovalRect), CGRectGetMidY(ovalRect)) radius: CGRectGetWidth(ovalRect) / 2 startAngle: 0 * M_PI/180 endAngle: -180 * M_PI/180 clockwise: YES];
+    [ovalPath addLineToPoint: CGPointMake(CGRectGetMidX(ovalRect), CGRectGetMidY(ovalRect))];
+    [ovalPath closePath];
+    
+    [color setFill];
+    [ovalPath fill];
+    
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
+/**
+ * 生成一张半圆形，圆弧向上
+ */
++ (UIImage *)imageHalfCircleUpWithRadius:(CGFloat)radius color:(UIColor *)color {
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(2*radius, radius), NO, 0.0f);
+    
+    //// Oval Drawing
+    //CGRect ovalRect = CGRectMake(0, -15, 30, 30);
+    CGRect ovalRect = CGRectMake(0, 0, 2*radius, 2*radius);
+    UIBezierPath* ovalPath = [UIBezierPath bezierPath];
+    [ovalPath addArcWithCenter: CGPointMake(CGRectGetMidX(ovalRect), CGRectGetMidY(ovalRect)) radius: CGRectGetWidth(ovalRect) / 2 startAngle: -180 * M_PI/180 endAngle: 0 * M_PI/180 clockwise: YES];
+    [ovalPath addLineToPoint: CGPointMake(CGRectGetMidX(ovalRect), CGRectGetMidY(ovalRect))];
+    [ovalPath closePath];
+    
+    [color setFill];
+    [ovalPath fill];
+    
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
 @end
