@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YQExtension"
-  s.version      = "0.0.3"
+  s.version      = "1.0"
   s.summary      = "Extend useful methods from UIView、NSString、NSDate、UIImage、UIColor、UIWebView..."
 
   # This description is used to generate tags and improve search results.
