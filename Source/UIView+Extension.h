@@ -21,7 +21,33 @@
 @property (nonatomic, assign) CGFloat maxX;
 @property (nonatomic, assign) CGFloat maxY;
 
+/**
+ * 插入子视图，subview在belowSubview之上，并自动偏移后面的视图
+ */
+- (void)insertSubview:(UIView *)subview belowSubview:(UIView *)belowSubview flexOffset:(CGPoint)flexOffset;
 
+/**
+ * 插入子视图，subview在aboveSubview之下，并自动偏移后面的视图
+ */
+- (void)insertSubview:(UIView *)subview aboveSubview:(UIView *)aboveSubview flexOffset:(CGPoint)flexOffset;
+
+/**
+ * 返回一个能包含所有子视图的尺寸
+ */
+- (CGSize)fullSize;
+
+/**
+ * 设置视图的尺寸，使其包含所有子视图的尺寸
+ */
+- (void)sizeToFull;
+
+/**
+ * 平移子视图从startView至endView
+ */
+- (void)subviewsFlexOffset:(CGPoint)flexOffset startView:(UIView *)startView endView:(UIView *)endView;
+
+
+#pragma mark -
 /**
  * @author yqing
  * @brief  绘制虚线

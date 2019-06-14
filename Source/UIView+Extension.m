@@ -117,7 +117,123 @@
     return CGRectGetMaxY(self.frame);
 }
 
+/**
+ * 插入子视图，subview在belowSubview之上，并自动偏移后面的视图
+ */
+- (void)insertSubview:(UIView *)subview belowSubview:(UIView *)belowSubview flexOffset:(CGPoint)flexOffset {
+    //
+    if (![subview isKindOfClass:[UIView class]] || ![belowSubview isKindOfClass:[UIView class]]) {
+        return;
+    }
+    if (belowSubview.superview != self) {
+        return;
+    }
+    //
+    [self insertSubview:subview belowSubview:belowSubview];
+    NSArray <UIView *> * subviewsArr = self.subviews;
+    NSUInteger idx = [subviewsArr indexOfObject:belowSubview];
+    if (idx != NSNotFound) {
+        for (NSUInteger i=idx; i<subviewsArr.count; i++) {
+            CGRect frame = subviewsArr[i].frame;
+            frame.origin.x += flexOffset.x;
+            frame.origin.y += flexOffset.y;
+            subviewsArr[i].frame = frame;
+        }
+    }
+}
 
+/**
+ * 插入子视图，subview在aboveSubview之下，并自动偏移后面的视图
+ */
+- (void)insertSubview:(UIView *)subview aboveSubview:(UIView *)aboveSubview flexOffset:(CGPoint)flexOffset {
+    //
+    if (![subview isKindOfClass:[UIView class]] || ![aboveSubview isKindOfClass:[UIView class]]) {
+        return;
+    }
+    if (aboveSubview.superview != self) {
+        return;
+    }
+    //
+    [self insertSubview:subview aboveSubview:aboveSubview];
+    NSArray <UIView *> * subviewsArr = self.subviews;
+    NSUInteger idx = [subviewsArr indexOfObject:subview];
+    if (idx != NSNotFound) {
+        idx += 1;
+        for (NSUInteger i=idx; i<subviewsArr.count; i++) {
+            CGRect frame = subviewsArr[i].frame;
+            frame.origin.x += flexOffset.x;
+            frame.origin.y += flexOffset.y;
+            subviewsArr[i].frame = frame;
+        }
+    }
+}
+
+/**
+ * 返回一个能包含所有子视图的尺寸
+ */
+- (CGSize)fullSize {
+    NSArray <UIView *> * subviewsArr = self.subviews;
+    if (subviewsArr.count <= 0) {
+        return self.frame.size;
+    }
+    CGSize size = CGSizeMake(0, 0);
+    for (NSUInteger i=0; i<subviewsArr.count; i++) {
+        if (CGRectGetMaxX(subviewsArr[i].frame) > size.width) {
+            size.width = CGRectGetMaxX(subviewsArr[i].frame);
+        }
+        if (CGRectGetMaxY(subviewsArr[i].frame) > size.height) {
+            size.height = CGRectGetMaxY(subviewsArr[i].frame);
+        }
+    }
+    return size;
+}
+
+/**
+ * 设置视图的尺寸，使其包含所有子视图的尺寸
+ */
+- (void)sizeToFull {
+    NSArray <UIView *> * subviewsArr = self.subviews;
+    if (subviewsArr.count <= 0) {
+        return;
+    }
+    CGSize size = CGSizeMake(0, 0);
+    for (NSUInteger i=0; i<subviewsArr.count; i++) {
+        if (CGRectGetMaxX(subviewsArr[i].frame) > size.width) {
+            size.width = CGRectGetMaxX(subviewsArr[i].frame);
+        }
+        if (CGRectGetMaxY(subviewsArr[i].frame) > size.height) {
+            size.height = CGRectGetMaxY(subviewsArr[i].frame);
+        }
+    }
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height);
+}
+
+/**
+ * 平移子视图从startView至endView
+ */
+- (void)subviewsFlexOffset:(CGPoint)flexOffset startView:(UIView *)startView endView:(UIView *)endView {
+    
+    if (startView==nil || startView.superview!=self) {
+        return;
+    }
+    if (endView==nil || endView.superview!=self) {
+        return;
+    }
+    NSArray <UIView *> * subviewsArr = self.subviews;
+    NSUInteger startIdx = [subviewsArr indexOfObject:startView];
+    NSUInteger endIdx = [subviewsArr indexOfObject:endView];
+    if (startIdx > endIdx) {
+        return;
+    }
+    for (NSUInteger i=startIdx; i<=endIdx; i++) {
+        CGRect frame = subviewsArr[i].frame;
+        frame.origin.x += flexOffset.x;
+        frame.origin.y += flexOffset.y;
+        subviewsArr[i].frame = frame;
+    }
+}
+
+#pragma mark -
 /**
  * @author yqing
  * @brief  绘制虚线
